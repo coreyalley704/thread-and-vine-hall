@@ -12,8 +12,8 @@ window.KR = {
 
   contact: {
     email: "events@threadandvinehall.com",
-    phone: "",               // add the Google Voice number, e.g. (704) 555-0100; phone lines stay hidden while blank
-    phoneLink: "",           // e.g. +17045550100 (digits only, for tap-to-call)
+    phone: "(828) 459-6749",  // Google Voice; phone lines hide automatically if blank
+    phoneLink: "+18284596749",           // e.g. +17045550100 (digits only, for tap-to-call)
     address: "325 McGill Ave NW, Suite 148, Concord, NC 28027",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=325+McGill+Ave+NW+Suite+148+Concord+NC+28027"
   },
