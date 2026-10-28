@@ -22,6 +22,9 @@
     el.textContent = out;
     el.classList.toggle('ph', /^contact\./.test(key) ? /\[/.test(out) : placeholder);
   });
+  if(!(KR.contact && KR.contact.phone)){
+    document.querySelectorAll('[data-tel]').forEach(function(a){ var box = a.closest('li') || (a.closest('.contact-lines') ? a.parentElement : null); if(box) box.hidden = true; else a.hidden = true; });
+  }
   document.querySelectorAll('[data-tel]').forEach(function(a){
     if(KR.contact && KR.contact.phoneLink) a.href = 'tel:' + KR.contact.phoneLink; else a.removeAttribute('href');
   });

@@ -8,11 +8,11 @@
      that removes the yellow "placeholder" highlight site-wide.
    ============================================================ */
 window.KR = {
-  confirmed: false,          // flip to true when rates are final
+  confirmed: true,           // flip to true when rates are final
 
   contact: {
     email: "events@threadandvinehall.com",
-    phone: "[phone]",        // e.g. (704) 555-0100
+    phone: "",               // add the Google Voice number, e.g. (704) 555-0100; phone lines stay hidden while blank
     phoneLink: "",           // e.g. +17045550100 (digits only, for tap-to-call)
     address: "325 McGill Ave NW, Suite 148, Concord, NC 28027",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=325+McGill+Ave+NW+Suite+148+Concord+NC+28027"
@@ -31,7 +31,7 @@ window.KR = {
   music:    { showDeal: null },
 
   // Add-ons and services (same for every renter, never discounted)
-  addons:   { cleaning: 250, av: 100, extraHour: 250, overtime: 200, security: 45, coffee: 4, loungeAdd: 300 },
+  addons:   { furniture: null, cleaning: 250, av: 100, extraHour: 250, overtime: 200, security: 45, coffee: 4, loungeAdd: 300 },
 
   // Refundable security deposits (public and nonprofit)
   deposits: { loom: 500, other: 150 },
@@ -40,8 +40,9 @@ window.KR = {
   offSeason: "10–15%",       // Nov–Feb and Jul–Aug
 
   times: {
-    saturdayEnd: "10:00 PM",
-    loadOutBy: "11:00 PM",
+    saturdayEnd: "11:00 PM",
+    fridayEnd: "2:00 AM",
+    loadOutBy: "12:00 AM",
     sundayAfter: "1:00 PM",
     depositPct: "50%",
     balanceDays: "30",
