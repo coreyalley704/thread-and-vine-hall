@@ -63,5 +63,5 @@ window.KR = {
   // "netlify" posts to Netlify Forms when the site is hosted on Netlify.
   // "google" posts to the Google Apps Script web app in endpoint (emails events@).
   // "mailto" opens the visitor's email app with the details filled in (fallback).
-  form: { mode: "mailto", endpoint: "" }
+  form: { mode: "google", endpoint: "https://script.google.com/macros/s/AKfycbyW5u0uNhtqCPU8BWP8awEEmD5A4MfZhvjjfeHL_LZFV3GKFtzeg-NWzPdAAvwbBBtebQ/exec" }
 };
