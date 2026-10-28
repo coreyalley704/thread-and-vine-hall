@@ -60,5 +60,7 @@ window.KR = {
   // "formsubmit" emails every inquiry to contact.email (works on GitHub Pages;
   //   the very first inquiry sends an activation email to that inbox: click it once).
   // "netlify" posts to Netlify Forms when the site is hosted on Netlify.
-  form: { mode: "formsubmit" }
+  // "google" posts to the Google Apps Script web app in endpoint (emails events@).
+  // "mailto" opens the visitor's email app with the details filled in (fallback).
+  form: { mode: "mailto", endpoint: "" }
 };

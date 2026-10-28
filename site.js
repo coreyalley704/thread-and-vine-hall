@@ -115,7 +115,15 @@
         thanks.focus(); track('Inquiry');
       }
       var fail = function(){ form.querySelector('.form-foot p').textContent = 'Something went wrong sending that. Please email us directly.'; };
-      if((KR.form||{}).mode === 'formsubmit' && KR.contact && /@/.test(KR.contact.email)){
+      var fm = KR.form || {};
+      if(fm.mode === 'google' && fm.endpoint){
+        var bp = new URLSearchParams(); d.forEach(function(v,k){ if(k!=='form-name') bp.append(k, v); }); bp.append('page', location.pathname);
+        fetch(fm.endpoint, {method:'POST', mode:'no-cors', body:bp}).then(function(){ done(false); }).catch(fail);
+      } else if(fm.mode === 'mailto' && KR.contact && /@/.test(KR.contact.email)){
+        var lines = []; d.forEach(function(v,k){ if(v && k!=='form-name' && k!=='bot-field') lines.push(k + ': ' + v); });
+        location.href = 'mailto:' + KR.contact.email + '?subject=' + encodeURIComponent('Inquiry: ' + (d.get('eventType')||'Event') + ' on ' + (d.get('date')||'')) + '&body=' + encodeURIComponent(lines.join('\n'));
+        done(false);
+      } else if(fm.mode === 'formsubmit' && KR.contact && /@/.test(KR.contact.email)){
         var o = {}; d.forEach(function(v,k){ if(k!=='bot-field' && k!=='form-name') o[k]=v; });
         o._subject = 'New inquiry: ' + (o.eventType||'Event') + ' on ' + (o.date||'') + ' (' + (o.guests||'?') + ' guests)';
         o._template = 'table'; o._captcha = 'false'; o._replyto = o.email;
