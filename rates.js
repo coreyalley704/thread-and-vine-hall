@@ -11,7 +11,7 @@ window.KR = {
   confirmed: false,          // flip to true when rates are final
 
   contact: {
-    email: "[email]",        // e.g. events@threadandvinehall.com
+    email: "events@threadandvinehall.com",
     phone: "[phone]",        // e.g. (704) 555-0100
     phoneLink: "",           // e.g. +17045550100 (digits only, for tap-to-call)
     address: "325 McGill Ave NW, Suite 148, Concord, NC 28027",
@@ -60,5 +60,5 @@ window.KR = {
   // "formsubmit" emails every inquiry to contact.email (works on GitHub Pages;
   //   the very first inquiry sends an activation email to that inbox: click it once).
   // "netlify" posts to Netlify Forms when the site is hosted on Netlify.
-  form: { mode: "preview" }
+  form: { mode: "formsubmit" }
 };
