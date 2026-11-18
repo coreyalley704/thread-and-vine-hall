@@ -57,11 +57,11 @@
       '<p hidden><label>Leave blank <input name="bot-field"></label></p>' +
       f('name','Your name','<input id="'+id+'-name" name="name" autocomplete="name" required>') +
       f('email','Email','<input id="'+id+'-email" name="email" type="email" autocomplete="email" required>') +
+      f('phone','Phone (so we can call to set up your tour)','<input id="'+id+'-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(704) 555-0123" required>') +
       f('type','Event type','<select id="'+id+'-type" name="eventType" required><option value="">Choose one</option>'+opt(TYPES,preset)+'</select>') +
       f('guests','Guest count','<input id="'+id+'-guests" name="guests" type="number" inputmode="numeric" min="1" max="600" required>') +
-      f('date','Preferred date','<input id="'+id+'-date" name="date" type="date" required>', 'full') +
+      f('date','Preferred date','<input id="'+id+'-date" name="date" type="date" required>') +
       '<details class="more"><summary>Add details (optional)</summary><div class="grid">' +
-        f('phone','Phone','<input id="'+id+'-phone" name="phone" type="tel" autocomplete="tel">') +
         f('org','Organization','<input id="'+id+'-org" name="organization" autocomplete="organization">') +
         f('backup','Backup date','<input id="'+id+'-backup" name="backupDate" type="date">') +
         f('heard','How did you hear about us?','<select id="'+id+'-heard" name="heard"><option value="">Choose one</option>'+opt(HEARD)+'</select>') +
@@ -77,7 +77,7 @@
       '</div></details>' +
       '<div class="form-foot"><button class="btn" type="submit">Check Availability</button><p>We reply within 24 hours.</p></div>' +
     '</form>' +
-    '<div class="thanks" hidden tabindex="-1"><span class="label">Received</span><h3>Thanks! We’ll be in touch within 24 hours to talk dates and set up a tour.</h3><p class="note" hidden data-preview-note>Preview only: this draft site isn’t connected yet, so nothing was sent.</p></div>';
+    '<div class="thanks" hidden tabindex="-1"><span class="label">Received</span><h3>Thanks! We’ll call you within 24 hours to talk dates and set up a tour.</h3><p class="note" hidden data-preview-note>Preview only: this draft site isn’t connected yet, so nothing was sent.</p></div>';
 
     function f(key,label,control,cls){
       return '<div class="f'+(cls?' '+cls:'')+'"><label for="'+id+'-'+key+'">'+label+'</label>'+control+'<span class="err" id="'+id+'-'+key+'-err"></span></div>';
@@ -102,6 +102,7 @@
       if(String(d.get('bot-field')||'')) return;
       if(!String(d.get('name')).trim()){ err('name','Add your name.'); ok=false; }
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(d.get('email')))){ err('email','Enter an email like name@example.com.'); ok=false; }
+      if(String(d.get('phone')||'').replace(/\D/g,'').length<10){ err('phone','Add a phone number so we can call you about a tour.'); ok=false; }
       if(!d.get('eventType')){ err('type','Choose the closest fit.'); ok=false; }
       var g = parseInt(d.get('guests'),10);
       if(!g || g<1){ err('guests','Add an estimate. It can change.'); ok=false; }
